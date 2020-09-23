@@ -3,12 +3,9 @@ const app = express();
 require('dotenv').config()
 
 const PORT = process.env.PORT;
+const routes = require('./routes')
 
-
-app.get('/', (req, res) => {
-  res.send("This worked")
-})
-
+app.use('/api/v1/tweets', routes.tweets);
 
 
 
