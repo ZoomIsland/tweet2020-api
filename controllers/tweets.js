@@ -1,9 +1,21 @@
-// import database here when ready
+const db = require('../models/index')
 
 const index = (req, res) => {
-  res.send("This worked too!")
+  db.Tweet.find({}, (err, foundTweets) => {
+    if (err) console.log('Error at Tweet index', err);
+    res.status(200).json(foundTweets)
+  })
+  // res.send("This worked too!")
+}
+
+const create = (req, res) => {
+  db.Tweet.create(req.body, (err, newTweet) => {
+    if (err) console.log('Error at Tweet create', err);
+    res.status(200).json(newTweet);
+  })
 }
 
 module.exports = {
-  index
+  index,
+  create
 }

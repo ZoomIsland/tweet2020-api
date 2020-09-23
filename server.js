@@ -5,9 +5,16 @@ require('dotenv').config()
 const PORT = process.env.PORT;
 const routes = require('./routes')
 
+// Body Parser
+app.use(express.urlencoded({extended: false}));
+
+
 app.use('/api/v1/tweets', routes.tweets);
 
-
+//404 Route
+app.get('*', (req, res) => {
+  res.send('<h1>404 Page Not Found</h1>')
+})
 
 app.listen(PORT, ()=> {
   console.log(`Listening on Port ${PORT}`)
