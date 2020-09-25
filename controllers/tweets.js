@@ -5,17 +5,16 @@ const index = (req, res) => {
     if (err) console.log('Error at Tweet index', err);
     res.status(200).json(foundTweets)
   })
-  // res.send("This worked too!")
 }
 
-const create = (req, res) => {
-  db.Tweet.create(req.body, (err, newTweet) => {
-    if (err) console.log('Error at Tweet create', err);
-    res.status(200).json(newTweet);
-  })
-}
+// const create = (req, res) => {
+//   db.Tweet.create(req.body, (err, newTweet) => {
+//     if (err) console.log('Error at Tweet create', err);
+//     res.status(200).json(newTweet);
+//   })
+// }
 
 module.exports = {
   index,
-  create
+  // create
 }
