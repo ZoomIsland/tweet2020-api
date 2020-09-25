@@ -8,6 +8,8 @@ const config = {
   }
 }
 
+const tweetIds = [];
+
 axios.get('https://api.twitter.com/2/tweets/1303370008832155648?expansions=author_id&user.fields=name,username,profile_image_url&tweet.fields=created_at', config)
   .then((res) => {
     // build object to send
@@ -22,7 +24,7 @@ axios.get('https://api.twitter.com/2/tweets/1303370008832155648?expansions=autho
     db.Tweet.create(tweetData, (err, newTweet) => {
         if (err) console.log('Error at getTweets create', err);
         console.log(newTweet)
-        process.exit();
+        // process.exit();
       })
 
   })
