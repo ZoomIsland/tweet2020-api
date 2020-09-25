@@ -14,5 +14,7 @@ mongoose.connect(connectionString, configOptions)
   .catch((err) => console.error(`MongoDB connection error: ${err}`))
 
 module.exports = {
-  Tweet: require('./Tweet')
+  Tweet: require('./Tweet'),
+  Candidate: require('./Candidate'),
+  LastUpdate: require('./LastUpdate')
 }
