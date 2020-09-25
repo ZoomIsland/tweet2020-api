@@ -28,6 +28,16 @@ module.exports = {
                 db.Tweet.create(tweetData, (err, newTweet) => {
                     if (err) console.log('Error at getTweets create', err);
                     // console.log(newTweet)
+
+                    db.Candidate.findById(tweetData.id, (err, foundCandidate) => {
+                        if(err) return console.log(err);
+
+                        foundCandidate.tweets.push(newTweet);
+                        foundCandidate.save((err, savedCanidate) => {
+                            if (err) return console.log(err);
+                            console.log(savedCanidate);
+                        })
+                    })
                   })
             }
           })

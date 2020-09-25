@@ -5,6 +5,10 @@ const candidateSchema = mongoose.Schema({
   username: String,
   full_name: String,
   user_img: String,
+  tweets: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Tweet',
+  }]
 })
 
 const Candidate = mongoose.model('Candidate', candidateSchema);
